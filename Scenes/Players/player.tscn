@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgmh6mpsss8b0"]
+
+[ext_resource type="Script" uid="uid://dnn11l1grwudj" path="res://Scripts/Players/player.gd" id="1_5h38p"]
+[ext_resource type="PackedScene" uid="uid://45clonlqnx1s" path="res://Scenes/Camera/camera.tscn" id="2_37lpg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_omydy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5h38p"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_5h38p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_omydy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5h38p")
+
+[node name="Camera" parent="." instance=ExtResource("2_37lpg")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://yppf4asjlsny"]
 
 [ext_resource type="PackedScene" uid="uid://dh7orxrxhlves" path="res://Scenes/Multiplayer/network_ui.tscn" id="1_yqp8s"]
-[ext_resource type="Script" uid="uid://bf3u1v7sep7bk" path="res://Scenes/Levels/player_spawner.gd" id="2_884bu"]
+[ext_resource type="Script" uid="uid://bf3u1v7sep7bk" path="res://Scripts/Multiplayer/player_spawner.gd" id="2_884bu"]
 [ext_resource type="PackedScene" uid="uid://uj627w3v1hrj" path="res://Scenes/Players/player_2d.tscn" id="3_0taqq"]
 
 [node name="Main2" type="Node2D"]

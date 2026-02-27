@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1hxteqve1nh"]
+
+[ext_resource type="PackedScene" uid="uid://cx3s7esmedijf" path="res://Scenes/Levels/world_3d.tscn" id="1_nk5xi"]
+[ext_resource type="PackedScene" uid="uid://dh7orxrxhlves" path="res://Scenes/Multiplayer/network_ui.tscn" id="1_s0gyx"]
+[ext_resource type="Script" uid="uid://bf3u1v7sep7bk" path="res://Scripts/Multiplayer/player_spawner.gd" id="2_u872a"]
+[ext_resource type="PackedScene" uid="uid://cgmh6mpsss8b0" path="res://Scenes/Players/player.tscn" id="3_nk5xi"]
+
+[node name="Main" type="Node3D"]
+
+[node name="World3d" parent="." instance=ExtResource("1_nk5xi")]
+
+[node name="Players" type="Node3D" parent="." groups=["Players"]]
+
+[node name="NetworkUI" parent="." instance=ExtResource("1_s0gyx")]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." groups=["spawner"]]
+_spawnable_scenes = PackedStringArray("uid://cgmh6mpsss8b0")
+spawn_path = NodePath("../Players")
+script = ExtResource("2_u872a")
+network_player = ExtResource("3_nk5xi")
