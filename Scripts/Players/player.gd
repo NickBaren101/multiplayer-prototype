@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 @export var speed := 6.0
+@onready var camera: Node3D = $Camera
+
 
 func _enter_tree():
 	set_multiplayer_authority(name.to_int())
