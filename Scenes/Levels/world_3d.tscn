@@ -17,6 +17,7 @@ transform = Transform3D(-0.70710677, 0.61237246, -0.35355335, 0, 0.49999997, 0.8
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
+collision_layer = 2
 size = Vector3(30, 3, 20)
 material = SubResource("StandardMaterial3D_hchbc")
 
