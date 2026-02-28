@@ -12,11 +12,13 @@ func _enter_tree():
 
 
 func _ready():
-	if not is_multiplayer_authority():
+	if is_multiplayer_authority():
+		camera.current = true
+	else:
+		camera.current = false
 		set_physics_process(false)
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	camera.current = true
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority(): return
