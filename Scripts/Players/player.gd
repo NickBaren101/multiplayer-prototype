@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var jump_velocity = 10.0
 
 @onready var camera: Node3D = $Camera3D
+@onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var gravity = 20.0
 
@@ -27,6 +28,9 @@ func _unhandled_input(event):
 		rotate_y(-event.relative.x * .005)
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+		
+	if Input.is_action_just_pressed("shoot"):
+		audio_player.play()
 
 
 func _physics_process(delta):
