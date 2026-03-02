@@ -24,6 +24,6 @@ func _on_start_button_pressed():
 		return
 	load_world.rpc()
 
-@rpc("any_peer", "call_local")
+@rpc("authority", "call_local")
 func load_world():
 	get_tree().change_scene_to_file("res://Scenes/Levels/main.tscn")
