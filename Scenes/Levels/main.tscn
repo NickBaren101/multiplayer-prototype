@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1hxteqve1nh"]
+[gd_scene load_steps=8 format=3 uid="uid://c1hxteqve1nh"]
 
 [ext_resource type="Script" uid="uid://c2wsqbmbyvvo8" path="res://Scripts/Levels/main.gd" id="1_7i1ub"]
 [ext_resource type="PackedScene" uid="uid://b5wluj4mutiat" path="res://Scenes/Levels/final_stage.tscn" id="1_nk5xi"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cgmh6mpsss8b0" path="res://Scenes/Players/player.tscn" id="3_nk5xi"]
 [ext_resource type="Script" uid="uid://duji4vltncyxj" path="res://Scripts/Levels/target_spawner.gd" id="5_w0lsm"]
 [ext_resource type="PackedScene" uid="uid://cu0drax41loa0" path="res://Scenes/Target/target.tscn" id="6_tpkgp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0lsm"]
+font_size = 48
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_7i1ub")
@@ -27,5 +32,20 @@ _spawnable_scenes = PackedStringArray("uid://cu0drax41loa0")
 spawn_path = NodePath("../Targets")
 script = ExtResource("5_w0lsm")
 target_scene = ExtResource("6_tpkgp")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = " \"You: %d               -               Opponent: %d\""
+label_settings = SubResource("LabelSettings_w0lsm")
+horizontal_alignment = 1
 
 [editable path="FinalStage"]

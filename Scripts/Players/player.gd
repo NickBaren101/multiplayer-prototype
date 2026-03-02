@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export var speed := 10.0
 @export var jump_velocity = 10.0
 
+@export var score: int = 0
+
 @onready var camera: Node3D = $Camera3D
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
@@ -80,4 +82,16 @@ func perform_shoot() -> void:
 	if result:
 		var collider = result.collider
 		if collider.has_method("take_damage"):
+			add_score(1)
 			collider.take_damage(100)
+
+func add_score(amount: int):
+	if not multiplayer.is_server():
+		return
+
+	score += amount
+	rpc("sync_score", score)
+
+@rpc("any_peer", "call_local")
+func sync_score(new_score: int):
+	score = new_score
