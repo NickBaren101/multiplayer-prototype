@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu0drax41loa0"]
+
+[ext_resource type="Script" uid="uid://duysal4xt1by8" path="res://Scripts/Target/target.gd" id="1_jd5eg"]
+[ext_resource type="PackedScene" uid="uid://bvl75x5cei5rg" path="res://Scenes/Target/health_component.tscn" id="2_dj1wj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0uve"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tbd3m"]
+material = SubResource("StandardMaterial3D_x0uve")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_46c6a"]
+
+[node name="Target" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_jd5eg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_tbd3m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_46c6a")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_dj1wj")]
