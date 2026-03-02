@@ -9,7 +9,7 @@
 [node name="Main" type="Node3D"]
 script = ExtResource("1_7i1ub")
 
-[node name="Node3D" parent="." instance=ExtResource("1_nk5xi")]
+[node name="FinalStage" parent="." instance=ExtResource("1_nk5xi")]
 
 [node name="Players" type="Node3D" parent="." groups=["Players"]]
 
