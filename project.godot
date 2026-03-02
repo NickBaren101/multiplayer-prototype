@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Multiplayer-Prototype"
-run/main_scene="uid://c1hxteqve1nh"
+run/main_scene="uid://cynqr2d056rj8"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,11 +22,6 @@ NetworkHandler="*res://Scripts/Multiplayer/network_handler.gd"
 [dotnet]
 
 project/assembly_name="Multiplayer-Prototype"
-
-[global_group]
-
-Players=""
-spawner=""
 
 [input]
 

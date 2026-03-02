@@ -1,19 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1hxteqve1nh"]
+[gd_scene load_steps=7 format=3 uid="uid://c1hxteqve1nh"]
 
 [ext_resource type="Script" uid="uid://c2wsqbmbyvvo8" path="res://Scripts/Levels/main.gd" id="1_7i1ub"]
 [ext_resource type="PackedScene" uid="uid://b5wluj4mutiat" path="res://Scenes/Levels/final_stage.tscn" id="1_nk5xi"]
 [ext_resource type="Script" uid="uid://bf3u1v7sep7bk" path="res://Scripts/Multiplayer/player_spawner.gd" id="2_u872a"]
 [ext_resource type="PackedScene" uid="uid://cgmh6mpsss8b0" path="res://Scenes/Players/player.tscn" id="3_nk5xi"]
+[ext_resource type="Script" uid="uid://duji4vltncyxj" path="res://Scripts/Levels/target_spawner.gd" id="5_w0lsm"]
+[ext_resource type="PackedScene" uid="uid://cu0drax41loa0" path="res://Scenes/Target/target.tscn" id="6_tpkgp"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_7i1ub")
 
 [node name="FinalStage" parent="." instance=ExtResource("1_nk5xi")]
 
-[node name="Players" type="Node3D" parent="." groups=["Players"]]
+[node name="Players" type="Node3D" parent="."]
 
-[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." groups=["spawner"]]
+[node name="Targets" type="Node3D" parent="."]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://cgmh6mpsss8b0")
 spawn_path = NodePath("../Players")
 script = ExtResource("2_u872a")
 player_scene = ExtResource("3_nk5xi")
+
+[node name="TargetSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://cu0drax41loa0")
+spawn_path = NodePath("../Targets")
+script = ExtResource("5_w0lsm")
+target_scene = ExtResource("6_tpkgp")
+
+[editable path="FinalStage"]
