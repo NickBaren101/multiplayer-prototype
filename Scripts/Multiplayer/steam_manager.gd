@@ -20,7 +20,7 @@ func initialize_steam():
 	
 	if initialize_response.status != 0:
 		print("Failed to Steam init: %s" %initialize_response)
-		get_tree().quit()
+		return
 	
 	is_owned = Steam.isSubscribed()
 	steam_id = Steam.getSteamID()
@@ -28,4 +28,4 @@ func initialize_steam():
 	
 	if not is_owned:
 		print("You aint own this game")
-		get_tree().quit()
+		return
