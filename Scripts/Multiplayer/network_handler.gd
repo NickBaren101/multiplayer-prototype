@@ -77,7 +77,7 @@ func connect_socket(steam_id):
 
 func list_lobbies():
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
-	Steam.addRequestLobbyListStringFilter("name", "", Steam.LOBBY_COMPARISON_NOT_EQUAL)
+	Steam.addRequestLobbyListStringFilter("name", LOBBY_NAME, Steam.LOBBY_COMPARISON_EQUAL)
 	Steam.requestLobbyList()
 
 func _on_connected():
