@@ -1,6 +1,6 @@
 extends Control
 
-@onready var ip_address_entry: LineEdit = $VBoxContainer/IPAddressEntry
+@onready var ip_address_entry: LineEdit = %IPAddressEntry
 
 
 func _on_host_button_pressed() -> void:
