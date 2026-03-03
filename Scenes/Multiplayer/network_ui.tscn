@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7tr55q0bta6s"]
 
-[ext_resource type="Script" path="res://Scripts/Multiplayer/network_ui.gd" id="1_2i7m4"]
+[ext_resource type="Script" uid="uid://b2uxxif2cywlh" path="res://Scripts/Multiplayer/network_ui.gd" id="1_2i7m4"]
 
 [node name="NetworkUI" type="Control"]
 layout_mode = 3
