@@ -26,6 +26,10 @@ func _on_join_steam_button_pressed() -> void:
 	NetworkHandler.start_steam_client(current_lobby_id)
 
 
+func _on_refresh_lobby_button_pressed() -> void:
+	NetworkHandler.list_lobbies()
+
+
 func lobby_clicked(lobby: int) -> void:
 	current_lobby_id = lobby
 	print(current_lobby_id)

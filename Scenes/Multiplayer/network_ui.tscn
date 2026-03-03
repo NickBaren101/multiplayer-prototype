@@ -71,6 +71,11 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Join Lobby"
 
+[node name="RefreshButton" type="Button" parent="HBoxContainer/HBoxContainer/SteamNetwork"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Refresh Lobby List"
+
 [node name="LobbyContainer" type="ScrollContainer" parent="HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -85,3 +90,4 @@ size_flags_vertical = 3
 [connection signal="pressed" from="HBoxContainer/LANNetwork/JoinButton" to="." method="_on_join_enet_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/HBoxContainer/SteamNetwork/HostButton" to="." method="_on_host_steam_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/HBoxContainer/SteamNetwork/JoinButton" to="." method="_on_join_steam_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/SteamNetwork/RefreshButton" to="." method="_on_refresh_lobby_button_pressed"]
