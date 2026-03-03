@@ -71,11 +71,17 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Join Lobby"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/HBoxContainer"]
+[node name="LobbyContainer" type="ScrollContainer" parent="HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="HBoxContainer/LANNetwork/HostButton" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/LANNetwork/JoinButton" to="." method="_on_join_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/HBoxContainer/SteamNetwork/HostButton" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/HBoxContainer/SteamNetwork/JoinButton" to="." method="_on_join_button_pressed"]
+[node name="LobbyList" type="VBoxContainer" parent="HBoxContainer/HBoxContainer/LobbyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="HBoxContainer/LANNetwork/HostButton" to="." method="_on_host_enet_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/LANNetwork/JoinButton" to="." method="_on_join_enet_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/SteamNetwork/HostButton" to="." method="_on_host_steam_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/SteamNetwork/JoinButton" to="." method="_on_join_steam_button_pressed"]

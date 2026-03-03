@@ -7,9 +7,6 @@ extends MultiplayerSpawner
 
 
 func _ready() -> void:
-	multiplayer.peer_connected.connect(spawn_player)
-	multiplayer.peer_disconnected.connect(remove_player)
-
 	if multiplayer.is_server():
 		spawn_player(multiplayer.get_unique_id())
 		for peer_id in multiplayer.get_peers():
@@ -20,7 +17,6 @@ func spawn_player(id: int) -> void:
 		return
 	if get_node(spawn_path).has_node(str(id)):
 		return
-	
 	
 	var player: Node = player_scene.instantiate()
 	player.name = str(id)
