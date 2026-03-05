@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dnn11l1grwudj" path="res://Scripts/Players/player.gd" id="1_5h38p"]
 [ext_resource type="PackedScene" uid="uid://b4jsg0fpb8r67" path="res://Assets/Gun/Shotgun/DoubleBarrelShotgun.fbx" id="2_37lpg"]
+[ext_resource type="PackedScene" uid="uid://dqt6nk78fjn7o" path="res://Scenes/Players/rig.tscn" id="2_ppdxs"]
 [ext_resource type="AudioStream" uid="uid://c3dpsdf0cs5fd" path="res://Assets/Sounds/Gunfire/Shotgun/ShotgunFire.mp3" id="3_8qn36"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_omydy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5h38p"]
 
@@ -23,9 +22,7 @@ properties/2/replication_mode = 1
 collision_mask = 2
 script = ExtResource("1_5h38p")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_omydy")
+[node name="Rig" parent="." instance=ExtResource("2_ppdxs")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -40,7 +37,7 @@ transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_8qn36")
 
-[node name="Control" type="Control" parent="."]
+[node name="Reticle" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Reticle"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
