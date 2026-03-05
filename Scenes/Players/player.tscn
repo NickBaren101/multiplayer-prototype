@@ -1,65 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgmh6mpsss8b0"]
+[gd_scene load_steps=3 format=3 uid="uid://cgmh6mpsss8b0"]
 
 [ext_resource type="Script" uid="uid://dnn11l1grwudj" path="res://Scripts/Players/player.gd" id="1_5h38p"]
-[ext_resource type="PackedScene" uid="uid://b4jsg0fpb8r67" path="res://Assets/Gun/Shotgun/DoubleBarrelShotgun.fbx" id="2_37lpg"]
-[ext_resource type="PackedScene" uid="uid://dqt6nk78fjn7o" path="res://Scenes/Players/rig.tscn" id="2_ppdxs"]
-[ext_resource type="AudioStream" uid="uid://c3dpsdf0cs5fd" path="res://Assets/Sounds/Gunfire/Shotgun/ShotgunFire.mp3" id="3_8qn36"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5h38p"]
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_37lpg"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath(".:rotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-properties/2/path = NodePath("Camera3D:rotation")
-properties/2/spawn = true
-properties/2/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 2
 script = ExtResource("1_5h38p")
 
-[node name="Rig" parent="." instance=ExtResource("2_ppdxs")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_5h38p")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="DoubleBarrelShotgun" parent="Camera3D" instance=ExtResource("2_37lpg")]
-transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0.5102215, -0.37823272, -0.85431206)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_8qn36")
-
-[node name="Reticle" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="Reticle"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 2.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_37lpg")
